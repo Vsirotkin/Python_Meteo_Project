@@ -1,0 +1,21 @@
+{% extends "_base.html" %}
+
+{% block content %}
+
+<h1>Logout</h1>
+
+<p>You are now successfully logged out.</p>
+
+<script>
+    // Function to redirect after a delay
+    function redirectAfterDelay(url, delay) {
+        setTimeout(function() {
+            window.location.href = url;
+        }, delay);
+    }
+
+    // Redirect to the indicated template after 5 seconds
+    redirectAfterDelay("{% url 'weather:home' %}", 5000);
+</script>
+
+{% endblock %}

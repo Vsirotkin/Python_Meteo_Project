@@ -13,5 +13,14 @@ retry-requests = "*"
 
 [dev-packages]
 
+
+[scripts]
+# Syntax: <command> = "<path_to_python> <path_to_manage.py> <command_options>"
+migrations = "pipenv run python manage.py makemigrations"
+migrate = "pipenv run python manage.py migrate"
+superuser = "pipenv run manage.py createsuperuser"
+runserver = "pipenv run python manage.py runserver"
+startapp = "pipenv run python manage.py startapp"
+
 [requires]
 python_version = "3.12"
