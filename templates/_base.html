@@ -48,9 +48,6 @@
                             {% for city in cities %}
                                 <li><a class="dropdown-item" href="#">{{ city }}</a></li>
                             {% endfor %}
-                            <!-- <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li> -->
                         </ul>
                     </li>
                     {% else %}
@@ -61,7 +58,7 @@
                         <a class="nav-link" href="{% url 'accounts:login' %}">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Sign Up</a>
+                        <a class="nav-link" href="{% url 'accounts:signup' %}">Sign Up</a>
                     </li>
                     {% endif %}
                 </ul>
