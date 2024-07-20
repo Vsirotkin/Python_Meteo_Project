@@ -17,7 +17,7 @@
 </head>
 
 <body>
-
+    <!-- Navbar -->
     {% block navbar %}
     <nav class="navbar navbar-dark bg-primary">
         <div class="container-fluid">
@@ -44,11 +44,11 @@
                             aria-expanded="false">
                             Cities
                         </a>
-                        <ul class="dropdown-menu">
+                        <!-- <ul class="dropdown-menu">
                             {% for city in cities %}
-                                <li><a class="dropdown-item" href="#">{{ city }}</a></li>
+                                <li><a class="dropdown-item" href="{% url 'weather:city_weather' city %}">{{ city }}</a></li>
                             {% endfor %}
-                        </ul>
+                        </ul> -->
                     </li>
                     {% else %}
                     <li class="nav-item">

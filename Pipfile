@@ -9,6 +9,7 @@ openmeteo-requests = "*"
 requests-cache = "*"
 pandas = "*"
 retry-requests = "*"
+numpy = "*"
 
 
 [dev-packages]

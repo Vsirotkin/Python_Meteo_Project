@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "a1ff51db6c2d51ab325c516049bb683354fb6985b2b1c34334567f16f78d915a"
+            "sha256": "98093a6f44d7bd756f36ebb6ca48574712297e90f76058d15fb4b84149203369"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -216,7 +216,8 @@
                 "sha256:fbd6acc766814ea6443628f4e6751d0da6593dae29c08c0b2606164db026970c",
                 "sha256:feff59f27338135776f6d4e2ec7aeeac5d5f7a08a83e80869121ef8164b74af9"
             ],
-            "markers": "python_version >= '3.12'",
+            "index": "pypi",
+            "markers": "python_version >= '3.9'",
             "version": "==2.0.0"
         },
         "openmeteo-requests": {

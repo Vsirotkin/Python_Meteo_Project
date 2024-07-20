@@ -1,0 +1,13 @@
+{% extends "_base.html" %}
+
+
+{% block title %}{{ city.name }}{% endblock %}
+
+{% block content %}
+
+    <h1>{{ city_data.city }} Weather</h1>
+    <p>Temperature: {{ city_data.temperature_2m }}</p>
+    <p>Relative Humidity: {{ city_data.relative_humidity_2m }}</p>
+    <p>Precipitation: {{ city_data.precipitation }}</p>
+
+{% endblock %}
