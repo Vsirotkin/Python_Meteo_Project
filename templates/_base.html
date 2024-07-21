@@ -12,18 +12,17 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
     <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
 
+
     <!-- Title -->
     <title>{% block title %}Meteo Forecast site{% endblock %}</title>
 </head>
 
 <body>
-    <!-- Navbar -->
     {% include 'utilities/navbar.html' %}
     
-    <div id="content">
-        {% block content %}
-        {% endblock content %}
-    </div>
+    <main class="container mt-4">
+        {% block content %}{% endblock %}
+    </main>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"

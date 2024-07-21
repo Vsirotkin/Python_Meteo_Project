@@ -1,18 +1,18 @@
 from django.urls import path
 from . import views
 
-from .views import SearchHistoryAPIView
 
 app_name = "weather"
 
 urlpatterns = [
     path("", views.welcome, name="welcome"),
     path("home/", views.home, name="home"),
+    path('search/', views.search_city, name='search_city'),
 ]
 
 # API
 urlpatterns += [
     path(
-        "api/search-history/", SearchHistoryAPIView.as_view(), name="search-history-api"
+        "api/search-history/", views.SearchHistoryAPIView.as_view(), name="search-history-api"
     ),
 ]
