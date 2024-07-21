@@ -28,3 +28,9 @@ class SignUpView(CreateView):
         valid = super().form_valid(form)
         login(self.request, self.object)
         return valid
+
+
+def user_logout(request):
+    cache.delete(f'last_viewed_city_{request.user.id}')
+    logout(request)
+    return redirect('accounts:logout')

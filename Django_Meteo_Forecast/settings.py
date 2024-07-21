@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # 3rd party
+    'rest_framework',
+
     # my apps
     'weather.apps.WeatherConfig',
     'accounts.apps.AccountsConfig',
@@ -132,7 +135,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Authentication
 LOGIN_REDIRECT_URL = 'weather:home'
-LOGOUT_REDIRECT_URL = 'weather:welcome'
+LOGOUT_REDIRECT_URL = 'accounts:logout'
 
 # Cache
 CACHES = {
