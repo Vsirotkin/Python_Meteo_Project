@@ -1,0 +1,10 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>Welcome to the Weather Forecast App</h1>
+    <p>Please sign up or log in to view the weather data.</p>
+    <a href="{% url 'accounts:signup' %}" class="btn btn-primary">Sign Up</a>
+    <a href="{% url 'accounts:login' %}" class="btn btn-secondary">Log In</a>
+</div>
+{% endblock %}
