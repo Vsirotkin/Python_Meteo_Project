@@ -12,6 +12,21 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from .serializers import SearchHistorySerializer
 
+from django.http import JsonResponse
+from django.views.decorators.http import require_GET
+
+
+@require_GET
+def autocomplete_city(request):
+    cities = []
+    if 'term' in request.GET:
+        search_term = request.GET.get('term')
+        with open("weather/cities.json", "r") as file:
+            cities_data = json.load(file)
+        cities = [city['name'] for city in cities_data if search_term.lower() in city['name'].lower()]
+    return JsonResponse(cities, safe=False)
+
+
 
 @login_required
 def home(request):

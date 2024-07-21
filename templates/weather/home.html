@@ -3,11 +3,11 @@
 
 {% block content %}
 <div class="container-fluid">
-    <h1>Welcome to the Weather Home Page</h1>
+    <h1 style="text-align: center;">Welcome to the Weather Home Page</h1>
 
-    <h1>Weather Data</h1>
+    <h2>Weather Data</h2>
     {% for city_name, location_data in combined_data %}
-        <h2>{{ city_name }}</h2>
+        <h3>{{ city_name }}</h3>
         <table class="table table-striped">
             <thead>
                 <tr>
