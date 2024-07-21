@@ -5,6 +5,7 @@
 <h1>Logout</h1>
 
 <p>You are now successfully logged out.</p>
+<p>Redirecting to the welcome page in <span id="countdown">5</span> seconds...</p>
 
 <script>
     // Function to redirect after a delay
@@ -14,8 +15,24 @@
         }, delay);
     }
 
-    // Redirect to the indicated template after 5 seconds
-    redirectAfterDelay("{% url 'weather:welcome' %}", 5000);
+    // Function to update the countdown timer
+    function updateCountdown(seconds) {
+        var countdownElement = document.getElementById('countdown');
+        var countdown = seconds;
+
+        var interval = setInterval(function() {
+            countdown--;
+            countdownElement.textContent = countdown;
+
+            if (countdown <= 0) {
+                clearInterval(interval);
+                redirectAfterDelay("{% url 'weather:welcome' %}", 0);
+            }
+        }, 1000);
+    }
+
+    // Start the countdown
+    updateCountdown(5);
 </script>
 
 {% endblock %}
