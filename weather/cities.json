@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Moscow",
+        "latitude": 52.52,
+        "longitude": 13.41
+    },
+    {
+        "name": "Nizhny Novgorod",
+        "latitude": 56.3287,
+        "longitude": 44.002
+    },
+    {
+        "name": "New York",
+        "latitude": 40.7143,
+        "longitude": -74.006
+    },
+    {
+        "name": "Berlin",
+        "latitude": 52.5244,
+        "longitude": 13.4105
+    }
+]
