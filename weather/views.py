@@ -14,7 +14,7 @@ def home(request):
     combined_data = list(zip(city_names, weather_data))
 
     selected_city = request.GET.get('city')
-    if selected_city:
+    if selected_city and selected_city != 'All Cities':
         combined_data = [(name, data) for name, data in combined_data if name == selected_city]
 
     return render(request, 'weather/home.html', {'combined_data': combined_data, 'city_names': city_names})

@@ -39,22 +39,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'accounts:logout' %}">Logout</a>
                     </li>
-                    <!-- <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Cities
-                        </a>
-                        <ul class="dropdown-menu">
-                            {% for city in cities %}
-                                <li><a class="dropdown-item" href="{% url 'weather:city_weather' city %}">{{ city }}</a></li>
-                            {% endfor %}
-                        </ul>
-                    </li> -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Cities
                         </a>
                         <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'weather:home' %}">All Cities</a></li>
                             {% for city_name in city_names %}
                                 <li><a class="dropdown-item" href="{% url 'weather:home' %}?city={{ city_name }}">{{ city_name }}</a></li>
                             {% endfor %}
