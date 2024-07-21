@@ -19,13 +19,16 @@ from django.views.decorators.http import require_GET
 @require_GET
 def autocomplete_city(request):
     cities = []
-    if 'term' in request.GET:
-        search_term = request.GET.get('term')
+    if "term" in request.GET:
+        search_term = request.GET.get("term")
         with open("weather/cities.json", "r") as file:
             cities_data = json.load(file)
-        cities = [city['name'] for city in cities_data if search_term.lower() in city['name'].lower()]
+        cities = [
+            city["name"]
+            for city in cities_data
+            if search_term.lower() in city["name"].lower()
+        ]
     return JsonResponse(cities, safe=False)
-
 
 
 @login_required
@@ -42,7 +45,9 @@ def home(request):
     selected_city = request.GET.get("city")
     if selected_city:
         combined_data = [
-            (name, data) for name, data in combined_data if name.lower() == selected_city.lower()
+            (name, data)
+            for name, data in combined_data
+            if name.lower() == selected_city.lower()
         ]
         # Store the last viewed city in the cache
         cache.set(f"last_viewed_city_{request.user.id}", selected_city)
@@ -53,7 +58,9 @@ def home(request):
         last_viewed_city = cache.get(f"last_viewed_city_{request.user.id}")
         if last_viewed_city:
             combined_data = [
-                (name, data) for name, data in combined_data if name.lower() == last_viewed_city.lower()
+                (name, data)
+                for name, data in combined_data
+                if name.lower() == last_viewed_city.lower()
             ]
         else:
             # If no city is selected and no city is in the cache, show all cities
@@ -75,23 +82,33 @@ def welcome(request):
 
 
 def search_city(request):
-    if request.method == 'GET':
-        city_name = request.GET.get('city')
+    if request.method == "GET":
+        city_name = request.GET.get("city")
         if city_name:
             with open("weather/cities.json", "r") as file:
                 cities = json.load(file)
-            
+
             city_names = [city["name"] for city in cities]
             latitudes = [city["latitude"] for city in cities]
             longitudes = [city["longitude"] for city in cities]
             weather_data = fetch_weather_data(latitudes, longitudes)
             combined_data = list(zip(city_names, weather_data))
 
-            filtered_data = [(name, data) for name, data in combined_data if name.lower() == city_name.lower()]
+            filtered_data = [
+                (name, data)
+                for name, data in combined_data
+                if name.lower() == city_name.lower()
+            ]
 
-            return render(request, 'weather/home.html', {'combined_data': filtered_data, 'city_names': city_names})
+            return render(
+                request,
+                "weather/home.html",
+                {"combined_data": filtered_data, "city_names": city_names},
+            )
         else:
-            return render(request, 'weather/home.html', {'combined_data': [], 'city_names': []})
+            return render(
+                request, "weather/home.html", {"combined_data": [], "city_names": []}
+            )
 
 
 class SearchHistoryAPIView(APIView):

@@ -6,7 +6,11 @@
     <h1 style="text-align: center;">Welcome to the Weather Home Page</h1>
 
     <h2>Weather Data</h2>
-    {% for city_name, location_data in combined_data %}
+
+    {% if not combined_data %}
+        <p>No data available for the selected city.</p>
+    {% else %}
+        {% for city_name, location_data in combined_data %}
         <h3>{{ city_name }}</h3>
         <table class="table table-striped">
             <thead>
@@ -26,7 +30,7 @@
                 {% endfor %}
             </tbody>
         </table>
-    {% endfor %}
-
+        {% endfor %}
+    {% endif %}
 </div>
 {% endblock %}
