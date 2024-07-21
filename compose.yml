@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: django_meteo_forecast_web
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/usr/src/app
+      - ./db.sqlite3:/usr/src/app/db.sqlite3
+    ports:
+      - "8000:8000"
+    environment:
+      - DJANGO_SETTINGS_MODULE=Django_Meteo_Forecast.settings
