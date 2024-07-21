@@ -132,4 +132,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Authentication
 LOGIN_REDIRECT_URL = 'weather:home'
-LOGOUT_REDIRECT_URL = 'accounts:logout'
+LOGOUT_REDIRECT_URL = 'weather:welcome'
+
+# Cache
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'unique-snowflake',
+    }
+}
