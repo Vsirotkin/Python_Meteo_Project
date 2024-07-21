@@ -8,19 +8,23 @@
     <h1>Weather Data</h1>
     {% for city_name, location_data in combined_data %}
         <h2>{{ city_name }}</h2>
-        <table>
-            <tr>
-                <th>Date</th>
-                <th>Max Temperature (°C)</th>
-                <th>Min Temperature (°C)</th>
-            </tr>
-            {% for day in location_data %}
-            <tr>
-                <td>{{ day.date }}</td>
-                <td>{{ day.temperature_2m_max }}</td>
-                <td>{{ day.temperature_2m_min }}</td>
-            </tr>
-            {% endfor %}
+        <table class="table table-striped table-sm">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th class="text-center">Max Temperature (°C)</th>
+                    <th class="text-center">Min Temperature (°C)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for day in location_data %}
+                <tr>
+                    <td>{{ day.date }}</td>
+                    <td class="text-center">{{ day.temperature_2m_max }}</td>
+                    <td class="text-center">{{ day.temperature_2m_min }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
         </table>
     {% endfor %}
 
