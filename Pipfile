@@ -11,6 +11,7 @@ pandas = "*"
 retry-requests = "*"
 numpy = "*"
 djangorestframework = "*"
+selenium = "*"
 
 
 [dev-packages]
