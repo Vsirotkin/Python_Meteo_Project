@@ -12,7 +12,7 @@ retry-requests = "*"
 numpy = "*"
 djangorestframework = "*"
 selenium = "*"
-
+psycopg2-binary = "*"
 
 [dev-packages]
 
